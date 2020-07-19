@@ -1,0 +1,34 @@
+{
+  "name": "marker-editor",
+  "version": "1.0.0",
+  "description": "A Markdown Editor",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nuxt website",
+    "lint": "eslint --ext .js,.vue src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vq0599/marker-editor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vq0599/marker-editor/issues"
+  },
+  "homepage": "https://github.com/vq0599/marker-editor#readme",
+  "devDependencies": {
+    "core-js": "^2.6.5",
+    "eslint": "^7.4.0",
+    "eslint-config-vqzfss-vue": "^0.0.2",
+    "json-loader": "^0.5.7",
+    "nuxt": "^2.13.3",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.2"
+  },
+  "dependencies": {
+    "codemirror": "^5.55.0",
+    "markdown-it": "^11.0.0"
+  }
+}
