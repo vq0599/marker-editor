@@ -3,32 +3,42 @@
   "version": "1.0.0",
   "description": "A Markdown Editor",
   "main": "index.js",
-  "scripts": {
-    "dev": "nuxt website",
-    "lint": "eslint --ext .js,.vue src",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "author": "Dehao Huang <vq0599@outlook.com>",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vq0599/marker-editor.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vq0599/marker-editor/issues"
-  },
-  "homepage": "https://github.com/vq0599/marker-editor#readme",
-  "devDependencies": {
-    "core-js": "^2.6.5",
-    "eslint": "^7.4.0",
-    "eslint-config-vqzfss-vue": "^0.0.2",
-    "json-loader": "^0.5.7",
-    "nuxt": "^2.13.3",
-    "sass": "^1.26.10",
-    "sass-loader": "^9.0.2"
+  "scripts": {
+    "serve": "vue-cli-service serve website",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "babel-plugin-prismjs": "^2.0.1",
     "codemirror": "^5.55.0",
-    "markdown-it": "^11.0.0"
-  }
+    "markdown-it": "^11.0.0",
+    "prismjs": "^1.20.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-plugin-eslint": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-prismjs": "^2.0.1",
+    "eslint": "^6.7.2",
+    "eslint-config-vqzfss-vue": "^0.0.2",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.2",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "peerDependencies": {
+    "vue": "2.x"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
