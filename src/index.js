@@ -1,3 +1,3 @@
-import App from './App';
+import MarkerEditor from './MarkerEditor'
 
-export default App
+export default MarkerEditor

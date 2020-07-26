@@ -65,7 +65,11 @@ export default {
   * {
     box-sizing: border-box;
   }
+  position: relative;
   font-size: 14px;
+  min-height: 300px;
+  max-height: 100vh;
+  overflow: hidden;
 
   &-body {
     height: calc(100% - 40px);
