@@ -10,13 +10,15 @@
     "url": "git+https://github.com/vq0599/marker-editor.git"
   },
   "scripts": {
-    "serve": "vue-cli-service serve website",
+    "dev": "VUE_CLI_SERVICE_CONFIG_PATH=$PWD/website/vue.config.js vue-cli-service serve website",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "animated-scroll-to": "^2.0.10",
     "babel-plugin-prismjs": "^2.0.1",
     "codemirror": "^5.55.0",
+    "lodash.debounce": "^4.0.8",
     "markdown-it": "^11.0.0",
     "markdown-it-katex": "^2.0.3",
     "prismjs": "^1.20.0"

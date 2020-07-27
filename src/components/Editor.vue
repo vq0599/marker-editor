@@ -12,6 +12,7 @@ import 'codemirror/mode/javascript/javascript'
 import 'codemirror/addon/scroll/simplescrollbars'
 import 'codemirror/addon/scroll/simplescrollbars.css'
 import 'codemirror/lib/codemirror.css'
+import { eventBus, eventTypes } from '../utils/event-bus'
 
 export default {
   model: {
@@ -46,6 +47,18 @@ export default {
       this.cm.on('change', () => {
         const value = this.cm.doc.getValue()
         this.$emit('input', value)
+      })
+
+      this.cm.on('scroll', () => {
+        const { top: scrollTop } = this.cm.getScrollInfo()
+        const targetLine = this.cm.lineAtHeight(scrollTop, 'local');
+        const { top: lineTop } = this.cm.charCoords({ line: targetLine, ch: 0 }, 'local')
+        const { height: lineHeight } = this.cm.getLineHandle(targetLine);
+
+        eventBus.$emit(eventTypes.scrollTo, {
+          line: targetLine,
+          percent: (scrollTop - lineTop) / lineHeight
+        })
       })
     }
   },

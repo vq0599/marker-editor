@@ -1,5 +1,4 @@
-export const defaultValue = `
-# 欢迎使用 Cmd Markdown 编辑阅读器
+export const defaultValue = `# 欢迎使用 Cmd Markdown 编辑阅读器
 
 ------
 

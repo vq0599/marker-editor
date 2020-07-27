@@ -20,17 +20,13 @@ md.use(katex, { throwOnError : false })
 // add source line
 md.renderer.rules.paragraph_open = injectLineNumbers;
 md.renderer.rules.heading_open = injectLineNumbers;
-// md.renderer.rules.bullet_list_open = injectLineNumbers;
-// md.renderer.rules.ordered_list_open = injectLineNumbers;
 md.renderer.rules.table_open = injectLineNumbers;
 md.renderer.rules.list_item_open = injectLineNumbers;
 md.renderer.rules.hr = injectLineNumbers;
 
-// md.renderer.rules.blockquote_open = injectLineNumbers;
 
 // https://github.com/markdown-it/markdown-it/blob/master/lib/renderer.js
 md.renderer.rules.fence = (tokens, idx, options) => {
-  console.log(tokens)
   const token = tokens[idx]
   const info = token.info ? unescapeAll(token.info).trim() : '';
   const langName = info ? info.split(/\s+/g)[0] : ''
