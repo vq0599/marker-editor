@@ -7,14 +7,18 @@
 
 <script>
 import CodeMirror from 'codemirror'
+import { eventBus, eventTypes } from '../utils/event-bus'
+import debounce from 'lodash.debounce'
 import 'codemirror/mode/markdown/markdown'
 import 'codemirror/mode/javascript/javascript'
 import 'codemirror/addon/scroll/simplescrollbars'
 import 'codemirror/addon/scroll/simplescrollbars.css'
 import 'codemirror/lib/codemirror.css'
-import { eventBus, eventTypes } from '../utils/event-bus'
 
 export default {
+  scrollLock: false,
+  cm: null,
+  scrollTimer: null,
   model: {
     prop: 'value',
     event: 'input',
@@ -29,9 +33,9 @@ export default {
       default: true,
     },
   },
-  cm: null,
   mounted() {
     this.init()
+    this.initScrollListener()
   },
   methods: {
     init() {
@@ -40,26 +44,42 @@ export default {
         mode:  "markdown",
         tabSize: 2,
         lineWrapping: true,
-        scrollbarStyle: 'overlay', // overlay
+        scrollbarStyle: 'overlay',
         autofocus: this.autofocus,
       });
 
-      this.cm.on('change', () => {
-        const value = this.cm.doc.getValue()
-        this.$emit('input', value)
-      })
+      this.cm.on('change', this.onChange)
 
-      this.cm.on('scroll', () => {
-        const { top: scrollTop } = this.cm.getScrollInfo()
-        const targetLine = this.cm.lineAtHeight(scrollTop, 'local');
-        const { top: lineTop } = this.cm.charCoords({ line: targetLine, ch: 0 }, 'local')
-        const { height: lineHeight } = this.cm.getLineHandle(targetLine);
+      this.cm.on('scroll', this.onScroll)
+    },
+    clearScrollLock: debounce(function () {
+      this.scrollLock = false
+    }, 300),
+    scrollToLine({ line, percent }) {
+      this.scrollLock = true
+      const { top: lineTop } = this.cm.charCoords({ line: line, ch: 0 }, 'local')
+      const { height: lineHeight } = this.cm.getLineHandle(line);
+      const scrollY = lineTop + lineHeight * percent
 
-        eventBus.$emit(eventTypes.scrollTo, {
-          line: targetLine,
-          percent: (scrollTop - lineTop) / lineHeight
-        })
-      })
+      this.cm.scrollTo(null, scrollY)
+
+      this.clearScrollLock()
+    },
+    initScrollListener() {
+      eventBus.$on(eventTypes.editorScrollTo, debounce(this.scrollToLine, 10))
+    },
+    onScroll() {
+      if (this.scrollLock) return
+      const { top: scrollTop } = this.cm.getScrollInfo()
+      const line = this.cm.lineAtHeight(scrollTop, 'local');
+      const lineTop = this.cm.charCoords({ line: line, ch: 0 }, 'local').top - 4 // 4?: editor顶部的padding
+      const { height: lineHeight } = this.cm.getLineHandle(line);
+      const percent = (scrollTop - lineTop) / lineHeight
+      eventBus.$emit(eventTypes.previewerScrollTo, { line, percent })
+    },
+    onChange() {
+      const value = this.cm.doc.getValue()
+      this.$emit('input', value)
     }
   },
 }
