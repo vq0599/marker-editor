@@ -12,7 +12,8 @@
   "scripts": {
     "dev": "VUE_CLI_SERVICE_CONFIG_PATH=$PWD/website/vue.config.js vue-cli-service serve website",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "generate-icons": "node icon-generate.js"
   },
   "dependencies": {
     "animated-scroll-to": "^2.0.10",
@@ -29,6 +30,7 @@
     "@vue/cli-service": "~4.4.0",
     "babel-eslint": "^10.1.0",
     "babel-plugin-prismjs": "^2.0.1",
+    "cheerio": "^1.0.0-rc.3",
     "eslint": "^6.7.2",
     "eslint-config-vqzfss-vue": "^0.0.2",
     "sass": "^1.26.10",
