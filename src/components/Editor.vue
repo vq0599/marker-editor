@@ -6,14 +6,9 @@
 </template>
 
 <script>
-import CodeMirror from 'codemirror'
 import { eventBus, eventTypes } from '../utils/event-bus'
 import debounce from 'lodash.debounce'
-import 'codemirror/mode/markdown/markdown'
-import 'codemirror/mode/javascript/javascript'
-import 'codemirror/addon/scroll/simplescrollbars'
-import 'codemirror/addon/scroll/simplescrollbars.css'
-import 'codemirror/lib/codemirror.css'
+import cmeditor from '../utils/editor-core'
 
 export default {
   scrollLock: false,
@@ -39,14 +34,12 @@ export default {
   },
   methods: {
     init() {
-      this.cm = CodeMirror(this.$refs.editer, {
+      cmeditor.init(this.$refs.editer, {
         value: this.value,
-        mode:  "markdown",
-        tabSize: 2,
-        lineWrapping: true,
-        scrollbarStyle: 'overlay',
         autofocus: this.autofocus,
-      });
+      })
+
+      this.cm = cmeditor.ins
 
       this.cm.on('change', this.onChange)
 
