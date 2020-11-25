@@ -3255,18 +3255,18 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   resolved "https://registry.npm.taobao.org/escape-string-regexp/download/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-vqzfss-vue@^0.0.5-alpha.0:
-  version "0.0.5-alpha.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-vqzfss-vue/-/eslint-config-vqzfss-vue-0.0.5-alpha.0.tgz#98aea597f094644a4a98eb862042cfe036ccfcfd"
-  integrity sha512-iGxKPd1wkt/adagc9fmTKCh+W11EAxWjkM62WypgP97HstqRhz0U6xe7Ttmyu3lN8qB6ZCYfjriRaIa6KqtwFA==
+eslint-config-vqzfss-vue@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/eslint-config-vqzfss-vue/-/eslint-config-vqzfss-vue-0.0.4.tgz#d8ecf47fdb352e1334ff5f6fe3bb1205a8aab41c"
+  integrity sha512-AGUkmj9jg8Hy44pXtcOjOTV+L5zLuuynPG8nb7XnMUBrqXp5vMCsgMEh1v26ZcPLtMWKxDCpRJiIl+/4gL7RWw==
   dependencies:
-    eslint-config-vqzfss "^0.0.5-alpha.0"
+    eslint-config-vqzfss "^0.0.4"
     eslint-plugin-vue "^6.2.2"
 
-eslint-config-vqzfss@^0.0.5-alpha.0:
-  version "0.0.5-alpha.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-vqzfss/-/eslint-config-vqzfss-0.0.5-alpha.0.tgz#3619d3dace2cde9614479fc56b7f94e2f91b8863"
-  integrity sha512-CAFKj0UJJ5saYFPzGPJxH1uSVUZ6dEWBmpfz5SStX5bh33ZTNcSPwY0TWRXzTeji7mf+UqVDDMLOwvkcusjUIQ==
+eslint-config-vqzfss@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/eslint-config-vqzfss/-/eslint-config-vqzfss-0.0.4.tgz#1a2e4b1fd0767c30f0cfdd529eaf9e52e481c51c"
+  integrity sha512-KUAExQg8hEY3ijjuPtSP9Q2+dgGRYhvpWYAvAc5ZuJuoXVF04jcI7RAO4tTK3gBOI/x2X+E45SZPSHwVdoAJVg==
   dependencies:
     babel-eslint "^10.1.0"
     eslint-plugin-import "^2.22.0"
@@ -4167,9 +4167,9 @@ hex-color-regex@^1.1.0:
   integrity sha1-TAb8y0YC/iYCs8k9+C1+fb8aio4=
 
 highlight.js@^9.6.0:
-  version "9.18.1"
-  resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-9.18.1.tgz#ed21aa001fe6252bb10a3d76d47573c6539fe13c"
-  integrity sha1-7SGqAB/mJSuxCj121HVzxlOf4Tw=
+  version "9.18.5"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.18.5.tgz#d18a359867f378c138d6819edfc2a8acd5f29825"
+  integrity sha512-a5bFyofd/BHCX52/8i8uJkjr9DYwXIPnM/plwI6W7ezItLGqzt7X2G2nXuYSfsIJdkwwj/g9DG1LkcGJI/dDoA==
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
