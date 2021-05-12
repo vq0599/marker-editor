@@ -18,7 +18,7 @@
   "dependencies": {
     "animated-scroll-to": "^2.0.10",
     "babel-plugin-prismjs": "^2.0.1",
-    "codemirror": "^5.55.0",
+    "codemirror": "^5.58.2",
     "lodash.debounce": "^4.0.8",
     "markdown-it": "^11.0.0",
     "markdown-it-katex": "^2.0.3",
